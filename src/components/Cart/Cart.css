@@ -1,3 +1,8 @@
-.product {
+.cart-product {
     list-style-type: none;
+}
+
+.cart-item-image {
+    width: 100px; 
+    height: 100px;
 }
