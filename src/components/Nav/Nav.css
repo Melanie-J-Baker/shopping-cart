@@ -1,0 +1,10 @@
+.nav-link-ul {
+    list-style-type: none;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-link {
+    padding: 5px;
+}

@@ -1,13 +1,12 @@
 import Nav from '../Nav/Nav'
 import './Home.css'
 
-
 function Home() {
 
   return (
     <>
       <Nav />
-      <div>Tech Store</div>
+      <div>Ultimate Electronics</div>
     </>
   )
 }
