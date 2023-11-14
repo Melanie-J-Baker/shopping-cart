@@ -1,8 +1,69 @@
+#shop {
+    margin-top: 55px;
+}
+
+.loading, .error {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+}
+
 .product {
     list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.show-desc {
+    background-color: black;
+    color: white;
+    width: 120px;
+    height: 30px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.show-desc:hover {
+    cursor: pointer;
+    background-color: rgb(66, 65, 65);
+    color: darkorange;
+}
+
+.show-desc:hover + .product-desc{
+    display: block;
+}
+
+.product-desc:hover {
+    display: block;
 }
 
 .product-image {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+}
+
+.product-desc {
+    display: none;
+}
+
+.buy-btn {
+    width: 120px;
+    height: 30px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.buy-btn:hover {
+    background-color: rgb(66, 65, 65);
+    cursor: pointer;
+    color: darkorange;
 }

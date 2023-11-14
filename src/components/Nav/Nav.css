@@ -1,10 +1,35 @@
-.nav-link-ul {
-    list-style-type: none;
-    text-decoration: none;
+nav {
+    background-color: black;
+    color: white;
+    position: fixed;
+    top: 0;
+    height: 50px;
+    width: 100%;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
 }
 
-.nav-link {
-    padding: 5px;
+.nav-link, .nav-link:visited {
+    text-decoration: none;
+    color: white;
+    padding: 0 10px;
+    width: 30px;
+}
+
+.nav-link:hover {
+    cursor: pointer;
+    color: darkorange;
+}
+
+.heading {
+    font-size: 2em;
+    flex-grow: 1;
+    text-align: center;
+    color: darkorange;
+}
+
+.cart-link {
+    text-align: right;
 }

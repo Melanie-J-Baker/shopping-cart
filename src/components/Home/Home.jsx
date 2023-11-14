@@ -4,10 +4,10 @@ import './Home.css'
 function Home() {
 
   return (
-    <>
+    <div id="home">
       <Nav />
-      <div>Ultimate Electronics</div>
-    </>
+      <div>Welcome to All Tech!</div>
+    </div>
   )
 }
 
