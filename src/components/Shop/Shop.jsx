@@ -8,8 +8,8 @@ const Shop = () => {
     const [loading, setLoading] = useState(true);
     const [products, setProducts] = useState([]);
     const [error, setError] = useState(null);
-    //const [totalItems, setTotalItems] = useState(0);
-    //const [totalPrice, setTotalPrice] = useState(0);
+    const [totalItems, setTotalItems] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0);
     
     useEffect(() => {
         fetch('https://fakestoreapi.com/products/category/electronics?limit=5', { mode: 'cors' })
@@ -36,18 +36,19 @@ const Shop = () => {
                 }
             })
             setItemsInCart([...itemsInCart, result]);
-            //setTotalPrice(totalPrice + result.price)
+            setTotalPrice(totalPrice + result.price)
 
         } else {
             itemsInCart.find(function (x) {
                 if (x.id == e.target.value) {
                     x.quantity++// increase quantity
+                    setTotalPrice(totalPrice + x.price)
                 }
             })
             setItemsInCart([...itemsInCart])
-            //setTotalPrice(totalPrice + result.price)
+            
         }
-            //setTotalItems(totalItems + 1);
+            setTotalItems(totalItems + 1);
             
     }
 
@@ -65,16 +66,17 @@ const Shop = () => {
     const removeFromCart = (e) => {
         for(var i = 0; i < itemsInCart.length; i++) {
             if (itemsInCart[i].id == e.target.value) {
+                setTotalItems(totalItems - 1)
+                setTotalPrice(totalPrice - itemsInCart[i].price)
                 if (itemsInCart[i].quantity == 1) {
                     itemsInCart.splice(i, 1);
                     setItemsInCart([...itemsInCart]);
                     break;
                 } else if (itemsInCart[i].quantity > 1) {
                     itemsInCart[i].quantity--;
-                    setItemsInCart([...itemsInCart]);
+                    setItemsInCart([...itemsInCart]);    
                 }
-                //setTotalItems(totalItems - 1)
-                //setTotalPrice(totalPrice - itemsInCart[i].price)
+                
 
             }
         }
@@ -95,7 +97,7 @@ const Shop = () => {
         <div id="shop">
             <Nav openCart={openCart}/>
             <div>{productElements}</div>
-            <Cart itemsInCart={itemsInCart} removeFromCart={removeFromCart} closeCart={closeCart} /*totalItems={totalItems} totalPrice={totalPrice}*/ />
+            <Cart itemsInCart={itemsInCart} removeFromCart={removeFromCart} closeCart={closeCart} totalItems={totalItems} totalPrice={totalPrice} />
         </div>
     )
 }
