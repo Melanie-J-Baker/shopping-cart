@@ -1,3 +1,28 @@
 #home {
     margin-top: 55px;
 }
+
+.welcome-img {
+    width: 100%;
+    height: 100%;
+}
+
+.welcome-wrapper {
+    position: relative;
+    height: 200px;
+    width: 100%;
+}
+
+.welcome-txt {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    background-color: rgba(169, 169, 169, 0.5);
+    width: 100%;
+    height: 50px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}

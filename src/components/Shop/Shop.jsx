@@ -8,7 +8,8 @@ const Shop = () => {
     const [loading, setLoading] = useState(true);
     const [products, setProducts] = useState([]);
     const [error, setError] = useState(null);
-
+    //const [totalItems, setTotalItems] = useState(0);
+    //const [totalPrice, setTotalPrice] = useState(0);
     
     useEffect(() => {
         fetch('https://fakestoreapi.com/products/category/electronics?limit=5', { mode: 'cors' })
@@ -35,6 +36,8 @@ const Shop = () => {
                 }
             })
             setItemsInCart([...itemsInCart, result]);
+            //setTotalPrice(totalPrice + result.price)
+
         } else {
             itemsInCart.find(function (x) {
                 if (x.id == e.target.value) {
@@ -42,14 +45,17 @@ const Shop = () => {
                 }
             })
             setItemsInCart([...itemsInCart])
+            //setTotalPrice(totalPrice + result.price)
         }
+            //setTotalItems(totalItems + 1);
+            
     }
 
     const productElements = products.map(item =>
         <li key={item.id} className="product">
             <div className="product-title">{item.title}</div>
             <div><img src={item.image} className="product-image" /></div>
-            <div className="show-desc">See Description</div>
+            <button type="button" className="show-desc">See Description</button>
             <div className="product-desc">{item.description}</div>
             <div className="product-price">£{item.price}</div>
             <button type="button" className="buy-btn" value={item.id} onClick={addToCart}>Buy</button>
@@ -67,6 +73,8 @@ const Shop = () => {
                     itemsInCart[i].quantity--;
                     setItemsInCart([...itemsInCart]);
                 }
+                //setTotalItems(totalItems - 1)
+                //setTotalPrice(totalPrice - itemsInCart[i].price)
 
             }
         }
@@ -87,7 +95,7 @@ const Shop = () => {
         <div id="shop">
             <Nav openCart={openCart}/>
             <div>{productElements}</div>
-            <Cart itemsInCart={itemsInCart} removeFromCart={removeFromCart} closeCart={closeCart} />
+            <Cart itemsInCart={itemsInCart} removeFromCart={removeFromCart} closeCart={closeCart} /*totalItems={totalItems} totalPrice={totalPrice}*/ />
         </div>
     )
 }
