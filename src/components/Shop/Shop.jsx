@@ -15,11 +15,18 @@ const Shop = () => {
     }, []);
 
     const addToCart = (e) => {
-        let result = products.find(function (x) {
-            if (x.id == e.target.value) return x
-        }) 
-        setItemsInCart([...itemsInCart, result]);
-        console.log(itemsInCart);
+        let inCart = itemsInCart.find(function (x) {
+            if (x.id == e.target.value) return true;
+        })
+        if (!inCart) {
+            let result = products.find(function (x) {
+                if (x.id == e.target.value) return x
+            }) 
+            setItemsInCart([...itemsInCart, result]);  
+        } else {
+            // increase quantity
+        }
+
     }
 
     const productElements = products.map(item =>
@@ -31,11 +38,23 @@ const Shop = () => {
             <button type="button" className="buy-btn" value={item.id} onClick={addToCart}>Buy</button>
         </li>
     );
+
+    const removeFromCart = (e) => {
+        for(var i = 0; i < itemsInCart.length; i++) {
+            if (itemsInCart[i].id == e.target.value) {
+                itemsInCart.splice(i, 1);
+                setItemsInCart([...itemsInCart]);
+                break;
+            }
+        }
+        console.log(itemsInCart)
+    }
+
     return (
         <>
             <Nav/>
             <div>{productElements}</div>
-            <Cart itemsInCart={itemsInCart}/>
+            <Cart itemsInCart={itemsInCart} removeFromCart={removeFromCart}/>
         </>
     )
 }

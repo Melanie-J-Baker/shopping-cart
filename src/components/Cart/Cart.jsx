@@ -1,16 +1,22 @@
+import {useEffect, useState} from 'react'
 import PropTypes from 'prop-types';
 import './Cart.css'
 
-function Cart({ itemsInCart }) {
-    console.log(itemsInCart)
-    const itemElements = itemsInCart.map(item =>
-        <li key={item.id} className="cart-product">
-            <div>{item.title}</div>
-            <div><img src={item.image} className="cart-item-image"/></div>
-            <div>{item.desc}</div>
-            <div>{item.price}</div>
-        </li>
-    );
+function Cart({ itemsInCart, removeFromCart }) {
+    const [itemElements, setItemElements] = useState(itemsInCart);
+    useEffect(() => {
+        let cartItems = itemsInCart.map(item =>
+            <li key={item.id} className="cart-product">
+                <div>{item.title}</div>
+                <div><img src={item.image} className="cart-item-image"/></div>
+                <div>{item.desc}</div>
+                <div>{item.price}</div>
+                <button type="button" value={item.id} onClick={removeFromCart}>Remove item</button>
+            </li>
+        );
+        setItemElements(cartItems);
+    },[itemsInCart, removeFromCart]);
+
     return (
         <>
             <div>Shopping Cart</div>
@@ -21,7 +27,8 @@ function Cart({ itemsInCart }) {
 }
 
 Cart.propTypes = {
-    itemsInCart: PropTypes.array
+    itemsInCart: PropTypes.array,
+    removeFromCart: PropTypes.func,
 }
 
 export default Cart;
