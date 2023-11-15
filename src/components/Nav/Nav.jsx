@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 import './Nav.css';
 
 function Nav({openCart, totalItems}) {
     return (
         <nav>
-            <a href="/" className="nav-link">Home</a>
-            <a href="shop" className="nav-link">Shop</a>
-            <p className="heading">All Tech</p>
+            <Link to="/" className="nav-link">Home</Link>
+            <Link to="shop" className="nav-link">Shop</Link>
+            <p className="heading">ALL TECH</p>
             {location.pathname == '/shop' &&
             <>
                 <div className="nav-link cart-link" onClick={openCart}></div>

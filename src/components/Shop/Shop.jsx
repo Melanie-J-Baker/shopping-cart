@@ -57,7 +57,7 @@ const Shop = () => {
             <div className="product-btns">
                 <button type="button" className="show-desc">See Description</button>
                 <div className="product-desc">{item.description}</div>
-                <button type="button" className="buy-btn" value={item.id} onClick={addToCart}>Buy</button>
+                <button type="button" className="buy-btn" value={item.id} onClick={addToCart}>Add to Cart</button>
             </div>
         </li>
     );
