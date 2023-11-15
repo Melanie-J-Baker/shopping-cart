@@ -1,5 +1,6 @@
-#root {
+#root, body {
     height: 100%;
+    background-color: rgb(107, 107, 107);
 }
 
 * {
@@ -10,7 +11,7 @@
 
 #shop {
     margin-top: 50px;
-    background-color: rgb(107, 107, 107);
+
     height: 100%;
 }
 
@@ -20,7 +21,7 @@
     transform: translate(0, -50%);
     width: 100%;
     text-align: center;
-    font-size: 1.5em;
+    font-size: 3em;
 }
 
 .products {

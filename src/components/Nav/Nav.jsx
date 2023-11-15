@@ -6,7 +6,7 @@ function Nav({openCart, totalItems}) {
     return (
         <nav>
             <Link to="/" className="nav-link">Home</Link>
-            <Link to="shop" className="nav-link">Shop</Link>
+            <Link to="/shop" className="nav-link">Shop</Link>
             <p className="heading">ALL TECH</p>
             {location.pathname == '/shop' &&
             <>

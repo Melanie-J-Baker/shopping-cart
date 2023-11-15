@@ -40,9 +40,13 @@
 
 .home-images {
     background-color: darkgray;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    height: 500px;
 }
 
 .image {
     width: 350px;
-    margin: 50px;
+    margin: 40px auto;
 }
