@@ -1,3 +1,7 @@
+#root {
+    height: 100%;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -31,4 +35,14 @@
 .home-main-text {
     padding: 50px;
     font-size: 1.5em;
+    background-color: rgb(65, 110, 110);
+}
+
+.home-images {
+    background-color: darkgray;
+}
+
+.image {
+    width: 350px;
+    margin: 50px;
 }
