@@ -23,16 +23,16 @@ function Cart({ itemsInCart, removeFromCart, closeCart, totalPrice }) {
             );
             setItemElements(cartItems);
         } else {
-            setItemElements(<li className="cart-product"><div>Your cart is empty!</div></li>);
+            setItemElements(<li className="cart-product"><div className="empty">Your cart is empty!</div></li>);
         }
     }, [itemsInCart, removeFromCart]);
 
     return (
         <div id="cart">
-            <div className="cart-title">Shopping Cart</div>
+            <div className="cart-title">SHOPPING CART</div>
             <ul className="cart-list">{itemElements}</ul>
             <div className="cart-btns">
-                <button type="button" className="close-cart" onClick={closeCart}>Keep shopping</button>
+                <button type="button" className="close-cart" onClick={closeCart}>Close Cart</button>
                 <button type="button" className="checkout">Checkout</button>
             </div>
             <div className="total">Subtotal: £{totalPrice}</div>

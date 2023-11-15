@@ -28,34 +28,50 @@ const Shop = () => {
         let inCart = itemsInCart.find(function (x) {
             if (x.id == e.target.value) return true;
         })
-        if (!inCart) {
-            let result = products.find(function (x) {
-                if (x.id == e.target.value) {
-                    x.quantity = 1;
-                    return x
-                }
-            })
-            setItemsInCart([...itemsInCart, result]);
-            setTotalPrice(totalPrice + result.price)
-        } else {
+        let quan = document.getElementById(e.target.value);
+        if (quan.value >= 1) {
+            if (!inCart) {
+                let result = products.find(function (x) {
+                    if (x.id == e.target.value) {
+                        let quantity = document.getElementById(x.id);
+                        x.quantity = Number(quantity.value);
+                        setTotalPrice(totalPrice + (x.price * x.quantity))
+                        setTotalItems(totalItems + x.quantity)
+                        return x
+                    }
+                })
+                setItemsInCart([...itemsInCart, result]);
+            } else {
+                itemsInCart.find(function (x) {
+                    if (x.id == e.target.value) {
+                        let quantity = document.getElementById(x.id);
+                        x.quantity = Number(quantity.value);
+                        setTotalPrice(totalPrice + x.price)
+                    }
+                })
+                setItemsInCart([...itemsInCart])
+            }
             itemsInCart.find(function (x) {
                 if (x.id == e.target.value) {
-                    x.quantity++// increase quantity
-                    setTotalPrice(totalPrice + x.price)
+                    setTotalItems(totalItems + x.quantity)
                 }
             })
-            setItemsInCart([...itemsInCart])
-        }
-        setTotalItems(totalItems + 1);  
+        } 
     }
 
     const productElements = products.map(item =>
         <li key={item.id} className="product">
             <div className="product-title">{item.title}</div>
             <div><img src={item.image} className="product-image" /></div>
-            <div className="product-price">£{item.price}</div>
+            <div className='price-quantity-wrapper'>
+                <div className="product-price">£{item.price}</div>
+                <div className="quantity-wrapper">
+                    <label htmlFor={item.id}>Quantity:</label>
+                    <input className="quantity" id={item.id} type="number" defaultValue="1"/>
+                </div>
+            </div>
             <div className="product-btns">
-                <button type="button" className="show-desc">See Description</button>
+                <button type="button" className="show-desc">Description</button>
                 <div className="product-desc">{item.description}</div>
                 <button type="button" className="buy-btn" value={item.id} onClick={addToCart}>Add to Cart</button>
             </div>
@@ -65,22 +81,24 @@ const Shop = () => {
     const removeFromCart = (e) => {
         for(var i = 0; i < itemsInCart.length; i++) {
             if (itemsInCart[i].id == e.target.value) {
-                setTotalItems(totalItems - 1)
-                setTotalPrice(totalPrice - itemsInCart[i].price)
                 if (itemsInCart[i].quantity == 1) {
+                    setTotalPrice(totalPrice - Number(itemsInCart[i].price))
                     itemsInCart.splice(i, 1);
+                    setTotalItems(totalItems - 1)
                     setItemsInCart([...itemsInCart]);
                     break;
                 } else if (itemsInCart[i].quantity > 1) {
                     itemsInCart[i].quantity--;
+                    setTotalPrice(totalPrice - Number(itemsInCart[i].price))
                     setItemsInCart([...itemsInCart]);    
                 }
+                
             }
         }
     }
 
     const openCart = () => {
-        document.getElementById('cart').style.width = "300px";
+        document.getElementById('cart').style.width = "320px";
     }
 
     const closeCart = () => {

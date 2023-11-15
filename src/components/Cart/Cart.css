@@ -3,7 +3,7 @@
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 3;
     top: 0;
     right: 0;
     overflow-x: hidden;
@@ -14,9 +14,17 @@
 }
 
 .cart-title {
-    font-size: 1.2em;
+    font-size: 1.5em;
     font-weight: 600;
-    margin: 10px 0;
+    margin: 30px 5px;
+    background-color: darkorange;
+    padding: 10px;
+    border: 2px black dashed;
+}
+
+.empty {
+    padding: 100px 20px;
+    font-size: 1.1em;
 }
 
 .cart-list {
@@ -67,8 +75,8 @@
 }
 
 .close-cart, .remove, .checkout {
-    width: 120px;
-    height: 30px;
+    width: 135px;
+    height: 40px;
     background-color: black;
     color: white;
     border-radius: 5px;
@@ -77,6 +85,8 @@
     align-items: center;
     border: none;
     margin: 5px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1em;
 }
 
 .close-cart:hover, .remove:hover, .checkout:hover {
@@ -88,4 +98,10 @@
 .cart-btns {
     display: flex;
     flex-direction: row;
+    margin: 20px 0px;
+}
+
+.total {
+    font-size: 1.3em;
+    font-weight: 600;
 }

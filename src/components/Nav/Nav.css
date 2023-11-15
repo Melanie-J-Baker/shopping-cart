@@ -6,36 +6,31 @@ nav {
     top: 0;
     height: 50px;
     width: 100%;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr 4fr 0.5fr 1.5fr;
     align-items: center;
-    justify-content: space-around;
 }
 
 .nav-link, .nav-link:visited {
     text-decoration: none;
     color: white;
-    padding: 0 10px;
-    margin: 0px 10px;
-    width: 30px;
+    font-size: 1.2em;
+    text-align: center;
 }
 
 .nav-link:hover {
     cursor: pointer;
     color: darkorange;
+    transform: scale(1.1)
 }
 
 .total-items {
     padding: 0 10px;
-}
-
-.total-items:hover {
-    fill: darkorange;
+    font-size: 1.2em;
 }
 
 .heading {
-    font-size: 2em;
-    flex-grow: 1;
+    font-size: 1.8em;
     text-align: center;
     color: darkorange;
 }
@@ -46,4 +41,9 @@ nav {
     height: 40px;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.cart-link:hover {
+    transform: scale(1.1);
+    background-image: url(/src/assets/icons/cart_orange.svg);
 }
