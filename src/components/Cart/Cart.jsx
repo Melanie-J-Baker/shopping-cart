@@ -2,10 +2,8 @@ import {useEffect, useState} from 'react'
 import PropTypes from 'prop-types';
 import './Cart.css'
 
-function Cart({ itemsInCart, removeFromCart, closeCart, totalItems, totalPrice }) {
+function Cart({ itemsInCart, removeFromCart, closeCart, totalPrice }) {
     const [itemElements, setItemElements] = useState(itemsInCart);
-    //const [totalItems, setTotalItems] = useState(0);
-    //const [totalPrice, setTotalPrice] = useState(0);
 
     useEffect(() => {
         if (itemsInCart.length !== 0) {
@@ -29,18 +27,6 @@ function Cart({ itemsInCart, removeFromCart, closeCart, totalItems, totalPrice }
         }
     }, [itemsInCart, removeFromCart]);
 
-    /*useEffect(() => {
-        if (itemsInCart.length !== 0) {
-            // Set total number of items in cart and total price
-            itemsInCart.map(item => {
-                setTotalItems(totalItems + item.quantity);
-                setTotalPrice(totalPrice + (item.price * item.quantity))
-            })
-        }
-
-    },[itemsInCart])*/
-
-
     return (
         <div id="cart">
             <div className="cart-title">Shopping Cart</div>
@@ -49,8 +35,7 @@ function Cart({ itemsInCart, removeFromCart, closeCart, totalItems, totalPrice }
                 <button type="button" className="close-cart" onClick={closeCart}>Keep shopping</button>
                 <button type="button" className="checkout">Checkout</button>
             </div>
-            <div className="total-items">Total items: {totalItems}</div>
-            <div className="total">Total price: £{totalPrice}</div>
+            <div className="total">Subtotal: £{totalPrice}</div>
         </div>
     )
 }
@@ -59,7 +44,6 @@ Cart.propTypes = {
     itemsInCart: PropTypes.array,
     removeFromCart: PropTypes.func,
     closeCart: PropTypes.func,
-    totalItems: PropTypes.number,
     totalPrice: PropTypes.number
 }
 

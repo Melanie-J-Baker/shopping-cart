@@ -12,7 +12,7 @@ const Shop = () => {
     const [totalPrice, setTotalPrice] = useState(0);
     
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products/category/electronics?limit=5', { mode: 'cors' })
+        fetch('https://fakestoreapi.com/products/category/electronics?limit=10', { mode: 'cors' })
             .then((response) => {
                 if (response.status >= 400) {
                     throw new Error("server error");
@@ -37,7 +37,6 @@ const Shop = () => {
             })
             setItemsInCart([...itemsInCart, result]);
             setTotalPrice(totalPrice + result.price)
-
         } else {
             itemsInCart.find(function (x) {
                 if (x.id == e.target.value) {
@@ -46,20 +45,20 @@ const Shop = () => {
                 }
             })
             setItemsInCart([...itemsInCart])
-            
         }
-            setTotalItems(totalItems + 1);
-            
+        setTotalItems(totalItems + 1);  
     }
 
     const productElements = products.map(item =>
         <li key={item.id} className="product">
             <div className="product-title">{item.title}</div>
             <div><img src={item.image} className="product-image" /></div>
-            <button type="button" className="show-desc">See Description</button>
-            <div className="product-desc">{item.description}</div>
             <div className="product-price">£{item.price}</div>
-            <button type="button" className="buy-btn" value={item.id} onClick={addToCart}>Buy</button>
+            <div className="product-btns">
+                <button type="button" className="show-desc">See Description</button>
+                <div className="product-desc">{item.description}</div>
+                <button type="button" className="buy-btn" value={item.id} onClick={addToCart}>Buy</button>
+            </div>
         </li>
     );
 
@@ -76,8 +75,6 @@ const Shop = () => {
                     itemsInCart[i].quantity--;
                     setItemsInCart([...itemsInCart]);    
                 }
-                
-
             }
         }
     }
@@ -95,8 +92,8 @@ const Shop = () => {
 
     return (
         <div id="shop">
-            <Nav openCart={openCart}/>
-            <div>{productElements}</div>
+            <Nav openCart={openCart} totalItems={totalItems}/>
+            <div className="products">{productElements}</div>
             <Cart itemsInCart={itemsInCart} removeFromCart={removeFromCart} closeCart={closeCart} totalItems={totalItems} totalPrice={totalPrice} />
         </div>
     )
