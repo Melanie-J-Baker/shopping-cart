@@ -16,6 +16,7 @@ nav {
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+    animation: dropDown 1s ease-out;
 }
 
 .nav-link, .nav-link:visited {
@@ -66,8 +67,19 @@ nav {
     right: 0%;
     top: 0%;
     background-color: darkorange;
-    padding: 30px 50px;
+    padding: 20px 40px;
     border: 2px black dashed;
     animation: render 0.2s ease-out;
     z-index: 6;
+}
+
+@keyframes dropDown {
+    0% {
+        opacity: 0;
+        translate: 0 -200px;
+    }
+    100% {
+        opacity: 1;
+        translate: 0 0;
+    }
 }

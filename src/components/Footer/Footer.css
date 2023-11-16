@@ -14,6 +14,7 @@ footer {
     display: grid;
     grid-template-rows: 1fr 1fr;
     align-items: center;
+    animation: moveUp 1s ease-out;
 }
 
 .footer-top {
@@ -41,4 +42,16 @@ footer {
     padding-bottom: 10px;
     text-align: center;
     font-size: 0.9rem;
+}
+
+@keyframes moveUp {
+    0% {
+        opacity: 0;
+        translate: 0 2000px;
+    }
+
+    100% {
+        opacity: 1;
+        translate: 0 0;
+    }
 }
