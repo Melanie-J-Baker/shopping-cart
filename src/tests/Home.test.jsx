@@ -3,15 +3,6 @@ import { render, screen } from "@testing-library/react";
 import Home from "../components/Home/Home";
 import { MemoryRouter } from 'react-router-dom';
 
-describe('something truthy and falsy', () => {
-    it('true to be true', () => {
-        expect(true).toBe(true);
-    });
-    it('false to be false', () => {
-        expect(false).toBe(false);
-    })
-})
-
 describe("Home component", () => {
     it("renders Nav component", () => {
         render(
