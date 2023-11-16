@@ -4,6 +4,7 @@ import Shop from '../Shop/Shop'
 import ErrorPage from '../ErrorPage/ErrorPage';
 
 const Router = () => {
+    
     const router = createBrowserRouter([
         {
             path: "/",
