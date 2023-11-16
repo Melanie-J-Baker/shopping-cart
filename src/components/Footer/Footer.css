@@ -47,7 +47,7 @@ footer {
 @keyframes moveUp {
     0% {
         opacity: 0;
-        translate: 0 2000px;
+        translate: 0 200px;
     }
 
     100% {
