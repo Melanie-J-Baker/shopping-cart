@@ -26,6 +26,7 @@ const Shop = () => {
     }, []);
 
     const addToCart = (e) => {
+        let addedPopup = document.querySelector('.added');
         let inCart = itemsInCart.find(function (x) {
             if (x.id == e.target.value) return true;
         })
@@ -57,7 +58,11 @@ const Shop = () => {
                     setTotalItems(totalItems + x.quantity)
                 }
             })
-        } 
+            addedPopup.style.display = 'block';
+            setTimeout(() => {
+                addedPopup.style.display = 'none';
+            }, 3000)
+        }
     }
 
     const productElements = products.map(item =>

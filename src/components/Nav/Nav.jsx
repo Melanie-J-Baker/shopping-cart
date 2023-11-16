@@ -12,6 +12,7 @@ function Nav({openCart, totalItems}) {
                 <p className="heading">ALL TECH</p>
                 <div className="nav-link cart-link" onClick={openCart}></div>
                 <div className="total-items">{totalItems} items</div>
+                <div className="added">Added to Cart!</div>
             </>
             }
             {location.pathname == '/' &&

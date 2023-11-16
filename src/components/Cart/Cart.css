@@ -16,7 +16,7 @@
 .cart-title {
     font-size: 1.5rem;
     font-weight: 600;
-    margin: 30px 5px;
+    margin: 20px 5px;
     background-color: darkorange;
     padding: 10px;
     border: 2px black dashed;
@@ -54,7 +54,7 @@
 .cart-item-image {
     width: 75px; 
     height: 75px;
-    padding: 20px;
+    padding: 5px;
     background-color: white;
     margin-right: 20px;
 }

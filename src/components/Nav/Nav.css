@@ -59,3 +59,15 @@ nav {
     transform: scale(1.1);
     background-image: url(/src/assets/icons/cart_orange.svg);
 }
+
+.added {
+    display: none;
+    position: fixed;
+    right: 0%;
+    top: 0%;
+    background-color: darkorange;
+    padding: 30px 50px;
+    border: 2px black dashed;
+    animation: render 0.2s ease-out;
+    z-index: 6;
+}
