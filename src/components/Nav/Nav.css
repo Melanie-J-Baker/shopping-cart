@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 nav {
     background-color: black;
     color: white;
@@ -6,15 +12,16 @@ nav {
     top: 0;
     height: 50px;
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 4fr 0.5fr 1.5fr;
+    display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-evenly;
 }
 
 .nav-link, .nav-link:visited {
     text-decoration: none;
     color: white;
-    font-size: 1.2em;
+    font-size: 1.1rem;
     text-align: center;
 }
 
@@ -24,13 +31,18 @@ nav {
     transform: scale(1.1)
 }
 
+.home-link {
+    margin: 0 5px;
+}
+
 .total-items {
-    padding: 0 10px;
-    font-size: 1.2em;
+    padding: 0 5px;
+    font-size: 1rem;
+    text-wrap: nowrap;
 }
 
 .heading {
-    font-size: 1.8em;
+    font-size: 1.8rem;
     text-align: center;
     color: darkorange;
 }

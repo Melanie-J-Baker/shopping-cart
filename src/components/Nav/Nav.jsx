@@ -5,13 +5,19 @@ import './Nav.css';
 function Nav({openCart, totalItems}) {
     return (
         <nav>
-            <Link to="/" className="nav-link">Home</Link>
-            <Link to="/shop" className="nav-link">Products</Link>
-            <p className="heading">ALL TECH</p>
+            <Link to="/" className="nav-link home-link">Home</Link>
             {location.pathname == '/shop' &&
             <>
+                <Link to="/shop" className="nav-link">Products</Link>
+                <p className="heading">ALL TECH</p>
                 <div className="nav-link cart-link" onClick={openCart}></div>
                 <div className="total-items">{totalItems} items</div>
+            </>
+            }
+            {location.pathname == '/' &&
+            <>
+                <p className="heading">ALL TECH</p>
+                <Link to="/shop" className="nav-link">Products</Link>
             </>
             }
         </nav>

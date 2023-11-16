@@ -14,7 +14,7 @@
 }
 
 .cart-title {
-    font-size: 1.5em;
+    font-size: 1.5rem;
     font-weight: 600;
     margin: 30px 5px;
     background-color: darkorange;
@@ -24,7 +24,7 @@
 
 .empty {
     padding: 100px 20px;
-    font-size: 1.1em;
+    font-size: 1.1rem;
 }
 
 .cart-list {
@@ -86,7 +86,7 @@
     border: none;
     margin: 5px;
     font-family: 'Share Tech Mono', monospace;
-    font-size: 1em;
+    font-size: 1rem;
 }
 
 .close-cart:hover, .remove:hover, .checkout:hover {
@@ -102,6 +102,6 @@
 }
 
 .total {
-    font-size: 1.3em;
+    font-size: 1.3rem;
     font-weight: 600;
 }

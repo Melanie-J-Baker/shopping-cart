@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 import Nav from '../Nav/Nav'
+import Footer from '../Footer/Footer'
 import Cart from '../Cart/Cart'
 import './Shop.css'
 
@@ -112,6 +113,7 @@ const Shop = () => {
         <div id="shop">
             <Nav openCart={openCart} totalItems={totalItems}/>
             <div className="products">{productElements}</div>
+            <Footer />
             <Cart itemsInCart={itemsInCart} removeFromCart={removeFromCart} closeCart={closeCart} totalItems={totalItems} totalPrice={totalPrice} />
         </div>
     )

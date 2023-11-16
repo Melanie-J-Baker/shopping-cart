@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    position: fixed;
+    z-index: 2;
+    bottom: 0;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+}
+
+.footer-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.footer-link {
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    margin: 0 5px;
+}
+
+.footer-link:hover {
+    cursor: pointer;
+    color: darkorange;
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    color: darkorange;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+}
