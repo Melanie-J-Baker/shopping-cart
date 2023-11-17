@@ -10,7 +10,7 @@ function Nav({openCart, totalItems}) {
             <>
                 <Link to="/shop" className="nav-link">Products</Link>
                 <p className="heading">ALL TECH</p>
-                <div className="nav-link cart-link" onClick={openCart}></div>
+                <div className="nav-link cart-link" onClick={openCart} data-testid="cart-btn"></div>
                 <div className="total-items">{totalItems} items</div>
                 <div className="added">Added to Cart!</div>
             </>
