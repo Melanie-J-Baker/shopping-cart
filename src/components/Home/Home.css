@@ -72,3 +72,9 @@ nav {
         translate: 0 0;
     }
 }
+
+@media screen and (min-width: 800px) {
+    .home-images {
+        flex-direction: row;
+    }
+}
