@@ -9,7 +9,7 @@ function Cart({ itemsInCart, removeFromCart, closeCart, totalPrice }) {
         if (itemsInCart.length !== 0) {
             // Create cart items
             let cartItems = itemsInCart.map(item =>
-                <li key={item.id} className="cart-product">
+                <li key={item.id} className="cart-product" data-testid="cart-item">
                     <div className="cart-item-title">{item.title}</div>
                     <div className="cart-outer-wrapper">
                         <div><img src={item.image} className="cart-item-image"/></div>
@@ -35,7 +35,7 @@ function Cart({ itemsInCart, removeFromCart, closeCart, totalPrice }) {
                 <button type="button" className="close-cart" onClick={closeCart}>Close Cart</button>
                 <button type="button" className="checkout">Checkout</button>
             </div>
-            <div className="total">Subtotal: £{totalPrice}</div>
+            <div className="total" data-testid="subtotal">Subtotal: £{totalPrice}</div>
         </div>
     )
 }

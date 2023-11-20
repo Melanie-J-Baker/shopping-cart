@@ -10,7 +10,7 @@ describe("Home component", () => {
                 <Home/>
             </MemoryRouter>
         )
-        expect(screen.getByRole('navigation'));
+        expect(screen.getByRole('navigation')).toBeInTheDocument;
     })
 
     it("renders correct heading", () => {
@@ -19,7 +19,7 @@ describe("Home component", () => {
                 <Home />
             </MemoryRouter>
         );
-        expect(screen.getByText('Welcome to All Tech'))
+        expect(screen.getByText('Welcome to All Tech')).toBeInTheDocument;
     });
     it("renders correct main text", () => {
         render(
@@ -27,7 +27,7 @@ describe("Home component", () => {
                 <Home />
             </MemoryRouter>
         );
-        expect(screen.getByText('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'))
+        expect(screen.getByText('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')).toBeInTheDocument;
     })
 
     it("renders image1", () => {
@@ -63,6 +63,6 @@ describe("Home component", () => {
                 <Home />
             </MemoryRouter>            
         )
-        expect(screen.getByRole('contentinfo'))
+        expect(screen.getByRole('contentinfo')).toBeInTheDocument;
     })
 });

@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { render, screen } from "@testing-library/react";
 import Shop from "../components/Shop/Shop";
 import { MemoryRouter } from 'react-router-dom';
@@ -11,7 +11,7 @@ describe("Shop component", () => {
                 <Shop />
             </MemoryRouter>
         )
-        expect(screen.getByText('Loading...'));
+        expect(screen.getByText('Loading...')).toBeInTheDocument;
     })
 
     it("renders Nav component", async () => {
@@ -29,7 +29,8 @@ describe("Shop component", () => {
                 <Shop />
             </MemoryRouter>
         )
-        await screen.findByRole('contentinfo');
+        const footer = await screen.findByRole('contentinfo');
+        expect(footer).toBeInTheDocument;
     })
 
     it("renders product elements", async () => {
@@ -38,7 +39,8 @@ describe("Shop component", () => {
                 <Shop />
             </MemoryRouter>
         );
-        await screen.findAllByRole('listitem');
+        const productElements = await screen.findAllByRole('listitem');
+        expect(productElements).toBeInTheDocument;
     })
 
     it("renders quantity inputs", async () => {
@@ -47,7 +49,8 @@ describe("Shop component", () => {
                 <Shop />
             </MemoryRouter>
         );
-        await screen.findAllByRole('spinbutton');
+        const quantityBtns = await screen.findAllByRole('spinbutton');
+        expect(quantityBtns).toBeInTheDocument;
     })
 
     it("renders buy buttons", async () => {
@@ -56,37 +59,14 @@ describe("Shop component", () => {
                 <Shop />
             </MemoryRouter>
         )
-        await screen.findAllByRole('button', { name: 'Add to Cart' })
+        const buttons = await screen.findAllByRole('button', { name: 'Add to Cart' });
+        expect(buttons).toBeInTheDocument;
     })
 
     it("adds item to cart", async () => {
         const user = userEvent.setup();
         const button = await screen.findAllByRole('button', { name: 'Add to Cart' })[0];
         await user.click(button);
-        expect(screen.findByText('Added to Cart!'));
+        expect(screen.findByText('Added to Cart!')).toBeInTheDocument;
     })
-
-    /*it("should call onClick function when clicked", async () => {
-        const onClick = vi.fn();
-        const user = userEvent.setup();
-        render(
-            <MemoryRouter>
-                <Shop></Shop>
-            </MemoryRouter>
-        )
-        const button = await screen.findAllByRole("button", { name: "Add to Cart" })[0];
-        await user.click(button);
-        expect(onClick).toHaveBeenCalled();
-    });*/
-
-    it("should not call the onClick function when it isn't clicked", async () => {
-        const onClick = vi.fn();
-        render(
-            <MemoryRouter>
-                <Shop />
-            </MemoryRouter>
-        )
-        expect(onClick).not.toHaveBeenCalled();
-    });
-
 });
