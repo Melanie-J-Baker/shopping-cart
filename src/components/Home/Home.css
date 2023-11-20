@@ -21,7 +21,7 @@ nav {
 }
 
 .welcome-wrapper {
-    background-image: url("/src/assets/images/circuit.jpg");
+    background-image: url("/images/circuit.jpg");
     position: relative;
     height: 300px;
 }
