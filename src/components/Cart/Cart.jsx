@@ -2,10 +2,11 @@ import {useEffect, useState} from 'react'
 import PropTypes from 'prop-types';
 import './Cart.css'
 
-function Cart({ itemsInCart, removeFromCart, closeCart, totalPrice }) {
+function Cart({ itemsInCart, removeFromCart, totalPrice, closeCart}) {
     const [itemElements, setItemElements] = useState(itemsInCart);
 
     useEffect(() => {
+        
         if (itemsInCart.length !== 0) {
             // Create cart items
             let cartItems = itemsInCart.map(item =>
@@ -25,7 +26,7 @@ function Cart({ itemsInCart, removeFromCart, closeCart, totalPrice }) {
         } else {
             setItemElements(<li className="cart-product"><div className="empty">Your cart is empty!</div></li>);
         }
-    }, [itemsInCart, removeFromCart]);
+    }, [itemsInCart]);
 
     return (
         <div id="cart">
@@ -43,8 +44,8 @@ function Cart({ itemsInCart, removeFromCart, closeCart, totalPrice }) {
 Cart.propTypes = {
     itemsInCart: PropTypes.array,
     removeFromCart: PropTypes.func,
-    closeCart: PropTypes.func,
-    totalPrice: PropTypes.number
+    totalPrice: PropTypes.number,
+    closeCart: PropTypes.func
 }
 
 export default Cart;
