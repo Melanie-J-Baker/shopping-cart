@@ -1,9 +1,9 @@
 import Nav from '../Nav/Nav'
 import Footer from '../Footer/Footer'
 import './Home.css'
-import image1 from '../../assets/images/image1.jpg';
-import image2 from '../../assets/images/image2.jpg';
-import image3 from '../../assets/images/image3.jpg';
+import image1 from '/src/assets/images/image1.jpg';
+import image2 from '/src/assets/images/image2.jpg';
+import image3 from '/dist/assets/images/image3.jpg';
 
 function Home() {
   return (
